@@ -1,0 +1,88 @@
+1)Посмотреть где я:
+ pwd
+2)Создать папку:
+ mkdir qa_30
+3)Зайти в папку:
+ cd qa_30/
+4)Создать три папки:
+ mkdir lesson_1 lesson_2 lesson_3
+5)Зайти в любую папку:
+ cd lesson_2/
+6)Создать 5 файлов (3 txt, 2 json):
+ touch book1.txt book2.txt book3.txt book4.json book5.json
+7)Создать три папки:
+ mkdir animals_1 animals_2 animals_3
+8)Вывести список содержимого папки:
+ ls -la
+9)+ открыть любой  txt файл:
+ cat book1.txt
+10)+ написать туда что-нибудь,любой текст:
+ cat >> book1.txt (ввели текст:Love will save the world)
+Так же можно воспользоваться командой vim
+ vim book1.txt
+затем нажимаем I, переходим в режим редактирования файла,теперь можно ввести текст Love will save the world.
+Далее нажимаем Esc(вышли из режима редактирования),теперь для сохранения и выхода нужно набрать :wq
+11)+ сохранить и выйти:
+ Ctrl+c
+12)Выйти из папки на уровень выше: 
+ cd..
+13)Переместить любые два файла,который вы создали,в любую папку:
+ mv lesson_2/book1.txt lesson_3/book1.txt
+ mv lesson_2/book2.txt lesson_3/book2.txt
+14)Скопировать любые два файла,которые вы создали, в любую другую папку:
+ cp lesson_2/book3.txt lesson_3/book3.txt
+ cp lesson_2/book4.json lesson_3/book3.txt
+15)Найти файл по имени:$ find . -name "book1.txt"(поиск по имени)
+                       $ find . -name "*.txt"(поиск по расширению)
+16)Просмотреть содержимое в реальном времени (команда grep) изучите как она работает:
+ head book1.txt выведет первые 10 строк файла
+ tail book1.txt выведет последние 10 строк файла
+ less +F book1.txt также позволяет увидеть файл в режиме реального времени 
+17)Вывести несколько первых строк из текстового файла:
+ head -n 3 book1.txt 
+18)Вывести несколько последних строк из текстового файла:
+ tail  -n 3 book1.txt
+19)Посмотреть содержимое длинного файла (команда less) изучите как она работает: 
+ less book1.txt (просмотр содержимого файла в отдельном окне.) 
+Можно воспользоваться командой "/поис по слову"; q выйти
+20)Вывести дату:
+ a)$ date
+ Fri May 20 14:39:16 RTZ 2022;
+ b)$ date +%A%d%B
+ Friday20May
+ c)$ date +%c
+ Fri May 20 14:40:58 2022
+Задание *
+1)Отправьте http запрос на сервер.http://162.55.220.72:5005/terminal-hw-request:
+ curl http://162.55.220.72:5005/terminal-hw-request
+ curl  "http://162.55.220.72:5005/get_method?name=Elena&age=37"
+2)Написать скрипт который выполнит автоматически пункты 3,4,5,6,7,8,13
+touch myscript.sh
+vim  myscript.sh(редактируем созданный файл)
+ #!/bin/bash
+ mkdir 555
+ cd 555/
+ mkdir lesson_1 lesson_2 lesson_3
+ cd lesson_2/
+ touch book1.txt book2.txt book3.txt book4.json book5.json
+ mkdir animals_1 animals_2 animals_3
+ ls -la
+ mv book1.txt lesson_3/book1.txt
+ mv (не указываем папку т.к мы и так в ней)book2.txt lesson_3/book2.txt
+ Esc,:qw
+ bash myscript.sh
+
+1.1Замены команды touch: 
+ > super.txt 
+
+ 2.1Переместить(копировать) 2 и более файла одной командой:
+ mv test_1/{1.txt, 2.txt} test_2/
+ cp test_1/{1.txt, 2.txt} test_2/
+
+ 3.1Cоздать несколько файлов:
+ mkdir qa{1,2,3}.txt
+
+ 4.1Поиск файла в определенных каталогах:
+ find ./lesson_1 ./lesson_2 -type f -name "book1.txt"
+ Поиск файлов в текущем каталоге по заданному расширению:
+ find . -name "*.txt"
